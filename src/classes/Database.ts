@@ -1,5 +1,6 @@
 import * as __db from 'quick.db';
 import { DEFAULT_PREFIX } from '../config'
+import { addGuildToNetworkIn, isOnNetworkIn, isOnNetworkOut } from '../types/Database';
 
 export class db {
     direct_access: typeof __db = __db;
@@ -26,5 +27,46 @@ export class db {
     get_guild_prefix(guild_id: string): string {
         const prefix = this.get(`guilds/${guild_id}/prefix`);
         return prefix ? prefix : DEFAULT_PREFIX;
+    }
+
+    addToNetwork(data: addGuildToNetworkIn): boolean {
+        const data_1 = this.getChannels()
+        data_1.push(data.channel.id);
+        this.set('channels', data_1);
+        this.set(`channels/${data.channel.id}`, {
+            id: data.channel.id,
+            name: data.channel.name,
+            messages: 0,
+            guild_id: data.channel.guildId
+        });
+        const data_2 = (this.get('guilds/all') as string[] || []);
+        data_2.push(data.guild.id);
+        this.set('guilds/all', data_2);
+        this.set(`guilds/${data.guild.id}`, {
+            id: data.guild.id,
+            name: data.guild.name,
+            messages: 0,
+            warnings: [],
+            addedBy: data.addedBy.id,
+            channel: data.channel.id
+        });
+
+        return true;
+    }
+
+    isOnNetwork(data: isOnNetworkIn): isOnNetworkOut {
+        return {
+            guild: data.guildId ? this.isGuildOnNetwork(data.guildId) : false,
+            channel: data.channelId ? this.getChannels().includes(data.channelId) : false
+        }
+    }
+
+    getChannels(): string[] {
+        return this.get('channels') as string[] || [];
+    }
+
+    isGuildOnNetwork(guild: string): boolean {
+        const guilds = this.get('guilds') as string[] || [];
+        return guilds.includes(guild);
     }
 }
