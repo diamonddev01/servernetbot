@@ -10,6 +10,9 @@ export function event(client: Client, interaction: Interaction): void {
 }
 
 function CommandHandle(client: Client, interaction: CommandInteraction): void {
+    if (interaction.channel?.isDMBased()) return;
+    if (!interaction.channel) return;
+
     const cmdName = interaction.commandName;
     const cmd = client.commands.get(cmdName);
 
