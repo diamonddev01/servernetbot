@@ -7,7 +7,7 @@ interface Construct {
     help: HelpData;
     aliases?: string[];
     slashEnabled?: boolean;
-    SlashCommandData?: SlashCommandBuilder;
+    SlashCommandData?: SlashCommandBuilder | Omit<SlashCommandBuilder, "addSubcommand" | "addSubcommandGroup">;
     message?: (client: Client, message: Message, args: string[]) => void;
     command?: (client: Client, interaction: CommandInteraction) => void;
     interaction?: (client: Client, interaction: Interaction) => void;
@@ -18,7 +18,7 @@ export class Command {
     description: string;
     help: HelpData;
     aliases: string[];
-    slash?: SlashCommandBuilder;
+    slash?: SlashCommandBuilder | Omit<SlashCommandBuilder, "addSubcommand" | "addSubcommandGroup">;
     slashEnabled: boolean = false;
 
     constructor(construct: Construct) {
