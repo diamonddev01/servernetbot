@@ -1,5 +1,6 @@
-import { Client, CommandInteraction, Interaction, Message, SlashCommandBuilder, UserFlags } from "discord.js";
+import { CommandInteraction, Interaction, Message, SlashCommandBuilder, UserFlags } from "discord.js";
 import { HelpData } from "../types/helpData";
+import { Client } from "./Client";
 
 interface Construct {
     name: string;
