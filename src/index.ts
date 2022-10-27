@@ -36,5 +36,3 @@ for (const dir of commandDirs) { // Reads through each directory from the comman
 
 // Login to the bot
 client.login(TOKEN);
-
-console.log(USER_STATUS)
