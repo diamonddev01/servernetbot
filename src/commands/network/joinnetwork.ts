@@ -21,7 +21,7 @@ export const command = new Command({
     async command(client, interaction) {
         // Check permissions
         if (!interaction.member) return;
-        if (!(interaction.member.permissions as PermissionsBitField).has([PermissionsBitField.Flags.ManageGuild, PermissionsBitField.Flags.ManageChannels], true)) {
+        if (!(interaction.member.permissions as PermissionsBitField).has([PermissionsBitField.Flags.ManageGuild, PermissionsBitField.Flags.ManageChannels], true) && !client.db.isUserStaff(interaction.user.id)) {
             // calculate missing permission
             let missingPermissions = [];
             if (!(interaction.member.permissions as PermissionsBitField).has(PermissionsBitField.Flags.ManageGuild)) missingPermissions.push('MANAGE_GUILD');

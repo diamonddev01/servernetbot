@@ -69,4 +69,10 @@ export class db {
         const guilds = this.get('guilds') as string[] || [];
         return guilds.includes(guild);
     }
+
+    isUserStaff(id: string): boolean {
+        const user = this.get(`users/${id}`) || { staff: false };
+
+        return user.staff ? true : false; // Fixes undefined errors
+    }
 }
