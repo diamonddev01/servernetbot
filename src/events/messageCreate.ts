@@ -7,7 +7,8 @@ export async function event(client: Client, message: Message): Promise<void> {
     const prefix = client.db.get_guild_prefix(message.guildId); // Allow dynamic prefixing, TODO #3
 
     if (!message.content.startsWith(prefix)) {
-        sendNetworkMessage(client, message);
+        // If channel is on network, run network functions
+        if(client.db.getChannels().includes(message.channelId)) sendNetworkMessage(client, message);
         return;
     }
 
