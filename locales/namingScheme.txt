@@ -1,5 +1,0 @@
-The naming scheme for functions should be:
-
-export function render{whatItsDoing}
-eg:
-export function renderError
