@@ -1,0 +1,1 @@
+export type StaffRanks = "Staff" | "Moderator" | "Administrator" | "Manager" | "Developer";

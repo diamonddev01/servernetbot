@@ -1,0 +1,1 @@
+export type Ranks = "Bronze" | "Silver" | "Gold" | "Diamond" | "Master" | "GrandMaster";
