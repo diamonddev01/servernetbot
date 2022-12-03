@@ -1,5 +1,6 @@
 node_modules
 build
-src/__hidden/config.ts
 *.sqlite
 .obsidian
+token.ts
+scripts

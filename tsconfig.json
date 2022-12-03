@@ -9,8 +9,8 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": false,
-    "sourceMap": true,
-    "moduleResolution": "NodeNext",
+    "sourceMap": false,
+    "moduleResolution": "Node",
     "removeComments": true,
     "preserveConstEnums": true,
     "noImplicitAny": true
