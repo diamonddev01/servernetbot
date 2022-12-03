@@ -4,11 +4,12 @@
   "description": "Servernet - A discord guild to guild communication bot",
   "main": "build/index.js",
   "scripts": {
-    "test": "tsc && cd build/src && node index.js",
-    "run": "cd build/src && node index.js",
+    "test": "tsc && cd build && node index.js",
+    "run": "cd build && node index.js",
     "build": "tsc",
     "servernet": "npm run run",
-    "watcher": "tsc -w"
+    "watcher": "tsc -w",
+    "servernet2": "npm run build && npm run servernet"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,6 @@
   "homepage": "https://github.com/diamonddev01/servernetbot#readme",
   "dependencies": {
     "@discordjs/rest": "^1.0.0",
-    "better-sqlite3": "^7.6.2",
     "discord.js": "^14.6.0",
     "https": "^1.0.0",
     "promise-mysql": "^5.2.0",
@@ -31,7 +31,5 @@
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.2",
     "@types/node": "^18.11.10"
-  },
-  "module": "ES2022",
-  "type": "module"
+  }
 }
