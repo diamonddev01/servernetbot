@@ -1,0 +1,50 @@
+# Version 2.0 | First release (December 25th, 2022)
+- [x] Make the bot stop insta-crashing
+	- Primary reason I made the idea of a V2
+- [x] Move to TS and open source entire project
+- [ ] New autofilter / Automoderator
+- [x] New Discord.JS version
+- [ ] UI rework
+- [x] New badge names (Cleaner code & naming system)
+- [ ] Purge of large amounts of data
+	- [ ] Bans
+	- [ ] Staff members
+	- [ ] Partners
+	- [ ] Message counts and such *Requires review*
+		- [ ] Review
+		- [ ] Final choice
+		- [ ] Complete action
+- [ ] Better moderation
+	- [ ] Reformat ban command
+		- `>blacklist <id> [-d] [duration] <reason>`
+		- The `[duration]` only matters if `[-d]` is present
+	- [ ] Allow guild banning
+	- [ ] Allow temporary user bans
+	- [ ] Improved timeout system (Save a last message Date)
+	- [ ] Network locking (>lock and >unlock)
+
+# Version 2.1 | Badge Rework
+- [ ] New badge system
+- [ ] Dynamic staff system
+	- [ ] \*removal of ./conf/users.json
+	- [ ] Command based system
+		- `>promote <id> [reason]` - Promotes a staff member
+		- `>demote <id> [reason]` - Demotes a staff member
+- [ ] Move all current JSON bans to .sqlite bans
+	- [ ] \*removal of ./conf/blacklisted.json
+- [ ] New partner system
+	- [ ] Allowing command based partnership applications
+	- [ ] Command based adding and removal of partners (Manager Locked)
+		- `>addpartner <id>` - Add a partner server (they will need the SNET_partner_monitor bot*)
+			- \*Not 100% sure if I will be using this or not, nor am I sure how it will work.
+		- `>rmpartner <id> <reason>` - Removes a partnered server (used if they break the partner code of conduct**)
+			- \*\*The partner code of conduct is not made yet, the enforcement of this will only start on version 2
+- [ ] Moving account data
+	- `>portaccount <old_id> <new_id> [-ban]`
+		- Moves all account data to a new ID
+		- The ban flag can be used to ban the old account (Hacked accounts)#
+- [ ] **Loads of new badges**
+	- [ ] Ranked system
+	- [ ] Level badges
+	- [ ] Scoring system
+	- [ ] Possible rewards
