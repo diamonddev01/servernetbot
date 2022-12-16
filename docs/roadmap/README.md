@@ -4,8 +4,7 @@ This content was all written in an application called obsidian. The names of the
 > Thanks, DiamondDev01
 
 ## Solutions:
-*Try to use a renderer that supports HTML & MD, since some of these files contain both*
-<span style="color:green">Recommended (R)</span><br><span style="color:yellow">Usable (U)</span><br><span style="color:red">Avoid if possible (A)</span><br>
+*Try to use a renderer that supports HTML & MD, since some of these files contain both*<br><span style="color:green">Recommended (R)</span><br><span style="color:yellow">Usable (U)</span><br><span style="color:red">Avoid if possible (A)</span><br>
 - <span style="color:green"><a href="https://obsidian.md" style="color:green;text-decoration:none">Obsidian (R)</a></span> <sup>obsidian.md</sup>
 	- The entire docs were written using Obsidian, so this would be the recommended renderer and PR's to markdown files will be tested in Obsidian and Obsidian only.
 - <span style="color:yellow"><a href="https://markdownlivepreview.com" style="color:yellow;text-decoration:none">Markdown Live Preview (U)</a></span> <sup>markdownlivepreview.com</sup>
