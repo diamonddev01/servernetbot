@@ -25,9 +25,20 @@ export class Client extends DiscordClient {
         return new Promise(async (resolve) => {
             if(!this.user || !this.token) return resolve(false);
             const rest = new REST({ version: '10' }).setToken(this.token);
+
+            console.log(this.commands);
     
             if (DeveloperMode) {
-                if (!this.user) return resolve(false);
+                return resolve(await this.registerDeveloperSlashcommands(rest));
+            }
+
+            return resolve(await this.registerPublicSlashCOmmands(rest));
+        })
+    }
+
+    private registerDeveloperSlashcommands(rest: REST): Promise<boolean> {
+        return new Promise<boolean>(async (resolve) => {
+            if (!this.user) return resolve(false);
                 let errors: string[] = [];
     
                 for (const guild of this.guilds.cache.map(g => g.id)) {
@@ -44,8 +55,11 @@ export class Client extends DiscordClient {
     
                 if (errors.length > 0) console.log(`Failed to load commands in ${errors.join(', ')}`);
                 return resolve(true);
-            }
-    
+        })
+    }
+
+    private registerPublicSlashCOmmands(rest: REST): Promise<boolean> {
+        return new Promise<boolean>(async (resolve) => {
             if (!this.user) return resolve(false);
     
             let success = true;
